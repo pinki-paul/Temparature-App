@@ -1,24 +1,26 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
 
 function App() {
+const [temparature, setTemaprature] = useState(0);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+   
+      <div className='container'>
+      <h1 className='temp'>Temparature Setting App</h1>
+        <div className='card'>
+          <div className='card-body'>
+            <h1 className={temparature > 0 ? "bg-danger" : "bg-success"} style={{color:"white"}}>{temparature} ° C</h1>
+            <div className='buttons'>
+            <button className=' main-btn' onClick={()=> setTemaprature(temparature +1)}>increment +</button>
+            <button className=' main-btn' onClick={()=> setTemaprature(temparature -1)}>decrement -</button>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </>
   );
 }
 
